@@ -4,18 +4,19 @@ var ObjectId = mongoose.ObjectId;
 var Schema = mongoose.Schema;
 
 var ICaracteristic = require('./ICaracteristic');
-var Game = require('./Game');
+//var Game = mongoose.model('Game');
+var Mygame = require('./Game');
 
 var characterModel = new Schema({
     characterName:String,
     playerName:String,
 
     baseAttr: [ICaracteristic],
-    stat: [ICaracteristic],
+    stats: [ICaracteristic],
     spendPoints: [ICaracteristic],
     skills:[ICaracteristic],
 
-    game: Game
+    game: Mygame 
 });
 
 

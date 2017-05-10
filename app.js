@@ -4,24 +4,18 @@ var bodyParser = require('body-parser');
 var port = process.env.port || 1337;
 
 var mongoose = require('mongoose');
-var Character = require('./models/characterModel');
-var Game = require('./models/game');
 
+ var Character = require('./models/characterModel');
+ var Game = require('./models/Game');
 
 mongoose.Promise = global.Promise;
-//var characterDb = mongoose.createConnection('mongodb://localhost/characterApi');
 mongoose.connect('mongodb://localhost/characterApi');
-//var gameDb = mongoose.createConnection('mongodb://localhost/gameApi');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-var characRouter = require('./Routes/characterRoutes');
+var characRouter = require('./Routes/api_routes');
 characRouter(app);
-// var gameRouter = require('./Routes/gameRoutes')(Game);
-
-//app.use('/characters', characRouter);
-//app.use('/games', gameRouter);
 
 // Simplest route you can do 
 // app.get('/', function(req, res){
